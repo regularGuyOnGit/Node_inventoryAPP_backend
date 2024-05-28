@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+
+  h1(class= "text-xl font-bold") #{title}
+
+  p(class="text-stone-600 mt-4 font-semibold") Are you really want to delete !{category.name} ?
+
+  form( method="post")
+    div.form-group 
+     input#category.form-control(type="hidden" name="category_delete" value = category._id)
+     button.btn.btn-danger.mt-4(type='submit') Delete

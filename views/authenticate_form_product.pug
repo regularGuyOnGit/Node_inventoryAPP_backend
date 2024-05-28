@@ -1,0 +1,20 @@
+
+
+extends layout 
+
+block content 
+
+  h1(class= "text-xl font-bold")=title
+
+  form(method='POST')
+   div.form-group.mt-4
+    lable(for="username") User Name :
+    input#username.form-control(type='text' name="username" placeholder="enter the username" required )
+   div.form-group  
+    label(for="password") Password :
+    input#password.form-control(type="password" name='password' placeholder="enter the password" required)
+    
+   button.btn.btn-primary(type='submit') Submit
+
+
+  h6(class='text-red-500 font-bold') !{message}

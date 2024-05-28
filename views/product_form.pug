@@ -1,0 +1,28 @@
+extends layout 
+
+block content 
+
+  h1(class= 'text-xl font-bold')= title 
+
+  
+  form(method='POST' class= "mt-4")
+    div.form-group
+      label(for='productName') Name:
+      input#productName.form-control(type='text', placeholder='Halogen Lights' name='name' required value=(undefined===product ? '' : product.name) )
+    div.form-group
+      label.mt-2(for='description') Description:
+      textarea#description.form-control(name="description" col='50' row='5'  placeholder='Halogen Lights are very good in snowy and raining seasons' required ) !{(undefined===product ? '' : product.description)}
+    div.form-group
+      label(for='category') Category:
+      input#category.form-control(type='text' placeholder="Light Bulb" name='category' value=(undefined===product ? '' : product.category ))
+      label.mt-2(for="price") Price:
+      input#price.form-control(type="text" placeholder="insert $ before the price eg $1.01" name= "price" value=(undefined ===product ? "" : product.price )) 
+      label.mt-2(for="numberInStock") Number in Stock:
+      input#numberInStock.form-control(type="number" min="0" max='99' name= "number_in_stock" value=(undefined ===product ? "" : product.number_in_stock )) 
+
+      button.btn.btn-primary.mt-2(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

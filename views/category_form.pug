@@ -1,0 +1,31 @@
+
+
+extends layout
+
+block content
+  h1(class= 'text-xl font-bold')= title
+
+  form(method='POST' class= "mt-4")
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Name of the category' name='name' required value=(undefined===category ? '' : category.name) )
+    div.form-group
+      label(for='description') Description:
+      textarea#description.form-control(placeholder='Description' value=(undefined===category ? '' : category.description) name='description' required ) !{(undefined===category ? '' : category.description)}
+
+    div.form-group
+      label Products:
+      div
+        for items in products
+          div(style='display: inline; padding-right:10px;')
+            if items.checked
+              input.checkbox-input(type='checkbox', name='products', id=items._id, value=items._id, checked)
+            else
+              input.checkbox-input(type='checkbox', name='products', id=items._id, value=items._id)
+            label(for=products._id) &nbsp; &nbsp;#{items.name}
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

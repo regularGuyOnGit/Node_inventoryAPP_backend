@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+
+  h1(class="text-xl font-bold") #{title}
+  p(class= "text-stone-600 mt-4 font-semibold") Are you sure you want to delete #{product.name} ?
+
+  form(method= "POST")
+     div.from-group 
+      input#productID.form-control(type="hidden" name="product_delete" value = product._id)
+      button.btn.btn-danger.mt-4(type='submit') Delete

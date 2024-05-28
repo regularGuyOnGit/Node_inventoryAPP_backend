@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  
+  h1(class='italic text-red-800 text-xl font-bold text-center border-2 border-fuchsia-300 bg-fuchsia-200')= title 
+  
+
+  if products.length 
+   ul.text-m.text-cyan-600.font-semibold.list-disc
+    each listings in products
+     li.mt-1
+       a(href= listings.url) #{listings.name}
+
+  else 
+    p There are no Products.

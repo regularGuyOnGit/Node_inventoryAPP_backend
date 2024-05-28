@@ -1,0 +1,23 @@
+extends layout 
+
+
+block content 
+
+   h1(class = "mt-2 text-xl text-center text-stone-600 font-bold") #{title}
+
+   h6(class= "mt-2 text-lg text-stone-400") !{description}
+
+   if category.products.length 
+    ul(class= "text-lg text-cyan-600 font-semibold list-disc mt-4 ")
+      each item in category.products 
+       li 
+         a(href= item.url) #{item.name}
+
+   else 
+    p(class= "text-red-500" ) No products in this category.
+
+
+   p(class= " mt-10 no-underline") 
+   a(href= category.url+'/authenticate/delete')(class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900") Delete Category
+   p(class= " mt-4 no-underline") 
+   a(href= category.url+'/authenticate/update')(class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900") Update Category

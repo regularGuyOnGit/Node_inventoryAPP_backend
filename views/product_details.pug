@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+
+  h1(class = "mt-2 text-xl text-stone-600 font-bold") #{title}
+  h1(class = "mt-2 text-lg text-orange-300") Category : #{product.category}
+  
+  h6(class= "mt-2 text-lg text-stone-400") !{product.description}
+
+  h6(class= "mt-2 text-md text-green-600") Price : #{product.price}
+  h6(class= "mt-2 text-md text-red-600") No. In Stocks : #{product.number_in_stock}
+
+  p(class= " mt-6 no-underline")
+  a(href=product.url+"/authenticate/delete")(class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900") Delete product
+
+  p(class= " mt-6 ")
+  a(href=product.url+"/authenticate/update")(class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900") Update product
