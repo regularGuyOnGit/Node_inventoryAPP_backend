@@ -19,10 +19,11 @@ app.set("view engine", "pug");
 
 mongoose.set("strictQuery", "false");
 const connectionString = "mongodb://localhost:27017/Inventory";
+const envDb = process.env.MONGODB;
 
 mainDb().catch((err) => console.log(err));
 async function mainDb() {
-  await mongoose.connect(connectionString);
+  await mongoose.connect(envDb || connectionString);
 }
 
 app.use(logger("dev"));
